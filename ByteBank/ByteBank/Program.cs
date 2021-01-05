@@ -4,45 +4,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Funcionarios;
+using ByteBank.Sistemas;
 
 namespace ByteBank
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
+            //CalcularBonificacao();
+            UsarSistema();
+            Console.ReadLine();
+        }
 
-            Funcionario carlos = new Funcionario(2000, "109203190193");
-            carlos.Nome = "Carlos";
-            //carlos.CPF = "109203190193";
-            //carlos.Salario = 2000;
-
-            carlos.AumentarSalario();
-            Console.WriteLine("Salario do carlos após aumento: " + carlos.Salario);
-
-            gerenciador.Registrar(carlos);
-
+        public static void UsarSistema()
+        {
+            SistemaInterno sistemaInterno = new SistemaInterno();
             Diretor jessica = new Diretor(5000, "2109203190193");
             jessica.Nome = "Jessica";
-            //jessica.CPF = "109203190193";
-            //jessica.Salario = 5000;
+            jessica.Senha = "123";
 
-            jessica.AumentarSalario();
-            Console.WriteLine("Salario da jessica após aumento: " + jessica.Salario);
+            sistemaInterno.Logar(jessica, "19828");
 
 
+        }
+
+        public static void CalcularBonificacao()
+        {
+            GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
+            Funcionario carlos = new Diretor(2000, "109203190193");
+            carlos.Nome = "Carlos";
+            //carlos.AumentarSalario();
+
+            
+            Diretor jessica = new Diretor(5000, "2109203190193");
+            jessica.Nome = "Jessica";
+            //jessica.AumentarSalario();
+
+            gerenciador.Registrar(carlos);
             gerenciador.Registrar(jessica);
 
-
-            Funcionario robertaTeste = jessica;
-
-
-            Console.WriteLine("Boniticacao diretor " + jessica.GetBonificacao());
-            Console.WriteLine("Boniticacao funcionario " + robertaTeste.GetBonificacao());
-
            
-
             Console.WriteLine(carlos.Nome);
             Console.WriteLine(carlos.GetBonificacao());
             Console.WriteLine(jessica.Nome);
@@ -51,5 +54,7 @@ namespace ByteBank
             Console.WriteLine("Total de bonificações: " + gerenciador.GetTotalBonificacao());
             Console.ReadLine();
         }
+
+
     }
 }
