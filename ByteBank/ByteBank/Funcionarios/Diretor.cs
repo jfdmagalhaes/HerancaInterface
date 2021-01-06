@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    public class Diretor : Autenticavel
+    public class Diretor : FuncionarioAutenticavel
     {
 
         public Diretor(double salario, string cpf) : base(salario, cpf)
@@ -16,7 +16,7 @@ namespace ByteBank.Funcionarios
             Console.WriteLine("criando DIRETOR");
         }
 
-     
+
         public override void AumentarSalario()
         {
             //Salario = Salario + (Salario * 0.1);

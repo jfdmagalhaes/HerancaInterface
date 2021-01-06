@@ -25,8 +25,12 @@ namespace ByteBank
             jessica.Nome = "Jessica";
             jessica.Senha = "123";
 
-            sistemaInterno.Logar(jessica, "19828");
+            sistemaInterno.Logar(jessica, "123");
 
+            ParceiroComercial parceiro = new ParceiroComercial();
+            parceiro.Senha = "123";
+
+            sistemaInterno.Logar(parceiro, "123");
 
         }
 
@@ -41,6 +45,8 @@ namespace ByteBank
             Diretor jessica = new Diretor(5000, "2109203190193");
             jessica.Nome = "Jessica";
             //jessica.AumentarSalario();
+
+
 
             gerenciador.Registrar(carlos);
             gerenciador.Registrar(jessica);
